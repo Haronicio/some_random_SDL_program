@@ -1,0 +1,39 @@
+Double clique pour ajouter un élément, 
+bug connu : tous attirer par un autre objet
+hypothèse :le réaloument (realloc) de la mémoire supprime le 1er élément du tableau alors qu'il n'est PAS sensé le faire :/ 
+
+
+
+quelque fonction :
+malloc(nbr octet) : alloue mémoire de nbr octets
+sizeof(type) : donnne la taille d'un type dans la mémoire
+free(addresse) : permet de libérer la mémoire a l'addresse 
+SDL_Init() : permet de démarrer SDL
+SDL_CreateWindow() : crée une fenêtre
+SDL_CreateRenderer() : Crée un rendu en fait c'est le support pour afficher des textures
+IMG_Load() : de la bibliothéque SDL image , cette fonction mais une image en mémoire  de la carte graphique 
+SDL_Surface* et SDL_Create textureFromSurface : la surface sont les textures zfficher de la SDL1.0 en SDL2.0 ceci sont rester mais remplacer par les SDL_Texture* il faut toujours passer par une Surface (non affichable pour crée une Texture (affichable)
+SDL_FreeSurface() : supprime une surface car une fois convertit en Texture elle ne sert plus a rien
+SDL_PolleEvent(): permet de gérer les évenement d'entrer
+SDL_Delay() fait une pose de x ms
+SDL_Rendercopy() affiche une texture sur le renderer
+SDL_RenderPresent() affiche le renderer sur la fenetre
+SDL_Destroy...() permet de supprimer certain éléments de SDL de la mémoire
+SDL_Quit() met fin a SDL
+
+
+
+Mini cour pointeur :
+les pointeurs stoque comme une variable l'addresse en mémoire d'éléments des programmes 
+ex :
+int * a;
+int b = 4;
+a = b
+ici a prend pas la valeur 4 de b mais son addresse en mémoire
+si j'écris ceci
+*a
+le programme va accéeder a la valeur de la variable qui est la ou a pointe, ainsi :
+*a = 3
+revient a faire
+b = 3
+les pointeurs son un outil promordiale de gestion de mémoire et de variables dynamiquement
